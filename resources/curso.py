@@ -1,7 +1,8 @@
 from flask_restful import Resource, reqparse
 from models.curso import CursoModel
 
-class Universidade(Resource):
+
+class Cursos(Resource):
     def get(self):
         return {'cursos': [curso.json() for curso in CursoModel.query.all()]}
 
@@ -49,4 +50,3 @@ class Curso(Resource):
                 {'mensagem': 'Erro interno ao tentar deletar o curso.'}, 500
             return {'mensagem': 'Curso deletado.'}, 200
         return {'Erro': 'Codigo de curso invalido.'}, 404
-           
